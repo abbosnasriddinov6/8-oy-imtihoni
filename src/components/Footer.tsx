@@ -3,7 +3,7 @@ import '../scss/main.scss'
 import { TiSocialSkypeOutline } from "react-icons/ti";
 const Footer = () => {
   return (
-    <div>
+    <div className=''>
       <footer className="text-gray-400 footer body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap md:text-left text-center order-first">

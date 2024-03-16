@@ -1,0 +1,50 @@
+@import'../main.scss';
+
+.thatone {
+    padding: 150px 200px;
+    width: 50%;
+    height: 100%;
+
+    h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 34px;
+        letter-spacing: 0em;
+        text-align: left;
+        width: 710px;
+        color: #2A254B;
+    }
+
+    p {
+        font-family: "Poppins", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #505977;
+        width: 730px;
+        margin-top: 40px;
+    }
+
+    button {
+        width: 150px;
+        height: 56px;
+        background-color: #F9F9F9;
+        border: none;
+        //styleName: Body/Medium;
+        font-family: "Poppins" sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        color: #2A254B;
+        margin-top: 200px;
+    }
+}
+
+.thattwo {
+    width: 50%;
+    height: 100%;
+}

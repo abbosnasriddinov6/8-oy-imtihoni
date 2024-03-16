@@ -1,0 +1,48 @@
+@import'../main.scss';
+
+.Furniture {
+    .furni {
+        padding: 100px 70px;
+        width: 60%;
+        height: 700px;
+        background-color: #2A254B;
+
+        h1 {
+            font-family: "Poppins", sans-serif;
+            font-size: 36px;
+            color: white;
+            width: 520px;
+        }
+
+        button {
+            width: 220px;
+            height: 55px;
+            background-color: #F9F9F926;
+            color: white;
+            font-size: 16px;
+            margin-top: 80px;
+        }
+
+        p {
+            //styleName: Body / Large;
+            font-family: "Poppins", sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 27px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: white;
+            margin-top: 200px;
+            width: 700px;
+        }
+    }
+
+    .furnit {
+        width: 40%;
+        height: 700px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
