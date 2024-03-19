@@ -1,9 +1,13 @@
+"use client"
 import { product1 } from '@/asstets'
 import Header from '@/components/Header'
 import Image from 'next/image'
 import React from 'react'
+import { useCounterStore } from '../Storetypes'
 
 const page = () => {
+
+  const { count, increase, decrease } = useCounterStore();
   return (
     <div>
       <Header />
@@ -31,9 +35,9 @@ const page = () => {
             <div className="p-4 ml-96 lg:w-1/2">
               <h4 className='mb-10 text-[#2A254B]'>Quantity</h4>
               <div className="h-full flex sm:flex-row gap-10 flex-col items-center ">
-                <button className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white'>-</button>
-                <p className='text-2xl text-[#2A254B]'>0</p>
-                <button className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white'>+</button>
+                <button onClick={decrease} className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white' >-</button>
+                <p className='text-2xl text-[#2A254B]'>{count}</p>
+                <button onClick={increase} className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white'>+</button>
               </div>
             </div>
             <div className="p-4  lg:w-1/2">

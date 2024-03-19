@@ -1,0 +1,14 @@
+@import '../main.scss';
+
+.div {
+    width: 100%;
+    height: 250px;
+    background-image: url(/header.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    h1 {
+        font-size: 32px;
+        color: white;
+    }
+}
