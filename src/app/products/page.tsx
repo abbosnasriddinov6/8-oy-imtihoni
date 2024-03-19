@@ -4,11 +4,13 @@ import '../../scss/pages/Product.scss'
 import Image from 'next/image'
 import { four, one, three, two } from '@/asstets'
 import getall from '../../useproducts/useProducts'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import '../../scss/pages/Club.scss'
 import Link from 'next/link'
 
 const page = () => {
+
+  const [search, setSearch] = useState('')
 
 
   const { products, loading, getproducts } = getall()
@@ -76,10 +78,27 @@ const page = () => {
           </div>
         </div>
         <div className='productsall w-[80%] '>
-          <section className="text-gray-600 body-font z-40 mx-auto container py-24 ">
+          <div className=''>
+            <input
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className='mx-auto block mt-5 w-[400px] h-[40px] px-4'
+            />
+          </div>
+          <section className="text-gray-600 body-font z-40 mx-auto container py-12 ">
             {loading ? <h2>Loading...</h2> : null}
             <div className=" grid grid-cols-4 gap-y-12 ceramics">
-              {products.length > 0 ? products.map((product) =>
+              {products.filter((product) => {
+                if (search === "") {
+                  return product;
+                } else if (
+                  product.title.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return product;
+                }
+              }).map((product) => (
                 <div className="flex flex-wrap gap-y-10">
                   <div className="lg:w-1/4 md:w-1/2 ochil  p-4  hover:scale-105 transition-all ">
                     <a className=" h-48 rounded overflow-hidden">
@@ -92,14 +111,14 @@ const page = () => {
                     </div>
                   </div>
                 </div>
-              ) : null}
+              ))}
             </div>
-            <div className='flex justify-center items-center button1'><button  className='mt-20 mb-10 w-[200px] text-[#2A254B] rounded h-[56px] bg-[#F9F9F9]'>Load more</button></div>
+            <div className='flex justify-center items-center button1'><button className='mt-20 mb-10 w-[200px] text-[#2A254B] rounded h-[56px] bg-[#F9F9F9]'>Load more</button></div>
           </section>
         </div>
       </div>
     </div >
-  
+
   )
 }
 

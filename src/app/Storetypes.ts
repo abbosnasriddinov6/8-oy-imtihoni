@@ -20,6 +20,7 @@ export const useCounterStore = create<CounterStoreType>((set) => ({
     count: 1,
     increase: () => {
         set((state) => ({ count: state.count + 1 }));
+        
     },
     decrease: () => {
         set((state) => ({
@@ -28,6 +29,10 @@ export const useCounterStore = create<CounterStoreType>((set) => ({
         }));
     },
 }));
+
+
+
+
 
 export type Storetype = {
     loading: boolean,

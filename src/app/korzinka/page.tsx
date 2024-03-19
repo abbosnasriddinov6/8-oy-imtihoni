@@ -2,12 +2,25 @@
 import { product1 } from '@/asstets'
 import Header from '@/components/Header'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useCounterStore } from '../Storetypes'
 
 const page = () => {
 
   const { count, increase, decrease } = useCounterStore();
+  const [subtotal, setSubtotal] = useState(85);
+
+  const handleIncrease = () => {
+    increase();
+    setSubtotal((prevSubtotal) => prevSubtotal + 85); // Increase subtotal by product price when increasing quantity
+  };
+
+  const handleDecrease = () => {
+    if (count > 1) {
+      decrease();
+      setSubtotal((prevSubtotal) => prevSubtotal - 85); // Decrease subtotal by product price when decreasing quantity
+    }
+  };
   return (
     <div>
       <Header />
@@ -35,15 +48,21 @@ const page = () => {
             <div className="p-4 ml-96 lg:w-1/2">
               <h4 className='mb-10 text-[#2A254B]'>Quantity</h4>
               <div className="h-full flex sm:flex-row gap-10 flex-col items-center ">
-                <button onClick={decrease} className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white' >-</button>
+                <button onClick={handleDecrease} className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white' >-</button>
                 <p className='text-2xl text-[#2A254B]'>{count}</p>
-                <button onClick={increase} className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white'>+</button>
+                <button onClick={handleIncrease} className='bg-[#2A254B] w-[50px] h-[50px] rounded-xl text-4xl text-white'>+</button>
               </div>
             </div>
             <div className="p-4  lg:w-1/2">
               <h4 className='mb-10 text-[#2A254B]' >Total</h4>
               <div className="h-full flex sm:flex-row gap-10 flex-col items-center ">
-                <p className='text-2xl text-[#2A254B]'>£85</p>
+                <p className='text-2xl text-[#2A254B]'>£{subtotal}</p>
+              </div>
+            </div>
+            <div className="p-4  lg:w-1/2">
+              <h4 className='mb-10 text-[#2A254B]' >Action</h4>
+              <div className="h-full flex sm:flex-row gap-10 flex-col items-center ">
+                <button className='bg-[#2A254B] w-[90px] h-[50px] rounded-xl text-2xl text-white'>Delete</button>
               </div>
             </div>
           </div>
@@ -52,7 +71,7 @@ const page = () => {
         <div className='flex flex-col justify-end py-16 px-[328px] container mx-auto'>
           <div className='flex justify-end gap-3 text-2xl text-[#2A254B]'>
             <h3 className=''>Subtotal</h3>
-            <h3 className=''>£210</h3>
+            <h3 className=''>£{subtotal}</h3>
           </div>
           <p className='text-end text-sm mt-3 text-[#2A254B]'>Taxes and shipping are calculated at checkout</p>
           <div className='flex justify-end'>

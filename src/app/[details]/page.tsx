@@ -8,12 +8,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useStore } from 'zustand'
-import { useCounterStore } from '../Storetypes'
 import { log } from 'console'
+import { useCounterStore } from '../Storetypes'
 
-const Details = ({ params }: {
+const Details = ({ params, }: {
     params: { details: string }
 }) => {
+
+
 
     const { count, increase, decrease } = useCounterStore();
 
@@ -48,6 +50,7 @@ const Details = ({ params }: {
                 {s.length > 0 ? s.map((product) =>
                     <div className="content-wrapper flex flex-col items-center justify-start gap-20">
                         <section className="w-full h-full flex flex-col lg:flex-row items-start  lg:items-center justify-start gap-10 lg:gap-20">
+                            
                             <section className="w-full h-full sm:w-[407px] sm:h-[461px] md:w-[507px] md:h-[561px]">
                                 <img
                                     src={product.category}
